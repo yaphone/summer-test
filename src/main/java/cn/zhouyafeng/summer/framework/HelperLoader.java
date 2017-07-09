@@ -1,9 +1,9 @@
 package cn.zhouyafeng.summer.framework;
 
+import cn.zhouyafeng.summer.framework.helper.BeanHelper;
 import cn.zhouyafeng.summer.framework.helper.ClassHelper;
 import cn.zhouyafeng.summer.framework.helper.ControllerHelper;
 import cn.zhouyafeng.summer.framework.helper.IocHelper;
-import cn.zhouyafeng.summer.framework.util.BeanHelper;
 import cn.zhouyafeng.summer.framework.util.ClassUtil;
 
 /**
@@ -18,15 +18,10 @@ import cn.zhouyafeng.summer.framework.util.ClassUtil;
  *
  */
 public class HelperLoader {
-    public static void init(){
-        Class<?>[] classList = {
-                ClassHelper.class,
-                BeanHelper.class,
-                IocHelper.class,
-                ControllerHelper.class
-        };
-        for(Class<?> cls: classList){
-            ClassUtil.loadClass(cls.getName(), false);
-        }
-    }
+	public static void init() {
+		Class<?>[] classList = { ClassHelper.class, BeanHelper.class, IocHelper.class, ControllerHelper.class };
+		for (Class<?> cls : classList) {
+			ClassUtil.loadClass(cls.getName(), false);
+		}
+	}
 }

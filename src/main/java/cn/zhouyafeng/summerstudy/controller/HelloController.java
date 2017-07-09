@@ -2,8 +2,10 @@ package cn.zhouyafeng.summerstudy.controller;
 
 import cn.zhouyafeng.summer.framework.annotation.Action;
 import cn.zhouyafeng.summer.framework.annotation.Controller;
+import cn.zhouyafeng.summer.framework.annotation.Inject;
 import cn.zhouyafeng.summer.framework.bean.Param;
 import cn.zhouyafeng.summer.framework.bean.View;
+import cn.zhouyafeng.summerstudy.service.face.HelloWorldServiceImpl;
 
 /**
  * @author https://github.com/yaphone
@@ -13,9 +15,12 @@ import cn.zhouyafeng.summer.framework.bean.View;
 @Controller
 public class HelloController {
 
-    @Action("get:/hello")
-    public View helloWorld(Param param){
-        System.out.println("HelloController");
-        return null;
-    }
+	@Inject
+	private HelloWorldServiceImpl helloWorldService;
+
+	@Action("get:/yaphone")
+	public View helloWorld(Param param) {
+		helloWorldService.sayHello();
+		return null;
+	}
 }
