@@ -1,11 +1,12 @@
 package cn.zhouyafeng.summer.framework.helper;
 
+import java.lang.annotation.Annotation;
+import java.util.HashSet;
+import java.util.Set;
+
 import cn.zhouyafeng.summer.framework.annotation.Controller;
 import cn.zhouyafeng.summer.framework.annotation.Service;
 import cn.zhouyafeng.summer.framework.util.ClassUtil;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 类操作助手类
@@ -84,6 +85,40 @@ public final class ClassHelper {
 		Set<Class<?>> classSet = new HashSet<Class<?>>();
 		classSet.addAll(getControllerClassSet());
 		classSet.addAll(getServiceClassSet());
+		return classSet;
+	}
+
+	/**
+	 * 获取应用包名下某父类（或接口）的所有子类（或实现类）
+	 * 
+	 * @date 2017年7月14日 下午10:57:04
+	 * @param superClass
+	 * @return
+	 */
+	public static Set<Class<?>> getClassSetBySuper(Class<?> superClass) {
+		Set<Class<?>> classSet = new HashSet<Class<?>>();
+		for (Class<?> cls : CLASS_SET) {
+			if (superClass.isAssignableFrom(cls) && !superClass.equals(cls)) {
+				classSet.add(cls);
+			}
+		}
+		return classSet;
+	}
+
+	/**
+	 * 获取应用包名下带有某注解的所有类
+	 * 
+	 * @date 2017年7月14日 下午11:00:00
+	 * @param annotationClass
+	 * @return
+	 */
+	public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotationClass) {
+		Set<Class<?>> classSet = new HashSet<Class<?>>();
+		for (Class<?> cls : CLASS_SET) {
+			if (cls.isAnnotationPresent(annotationClass)) {
+				classSet.add(cls);
+			}
+		}
 		return classSet;
 	}
 
