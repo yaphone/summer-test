@@ -74,7 +74,6 @@ public class ControllerHelper {
 	 */
 	public static Handler getHandler(String requestMethod, String requestPath) {
 		Request request = new Request(requestMethod, requestPath);
-		System.out.println(JSON.toJSONString(ACTION_MAP));
 		return ACTION_MAP.get(request);
 	}
 

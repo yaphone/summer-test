@@ -15,7 +15,6 @@ public class HelloWorldServiceImpl {
 
 	public void sayHello() {
 		System.out.println("Hello World Service");
-
 	}
 
 }

@@ -27,6 +27,7 @@ public final class IocHelper {
 	static {
 		// Bean类与Bean实例的映射关系
 		Map<Class<?>, Object> beanMap = BeanHelper.getBeanMap();
+
 		if (CollectionUtil.isNotEmpty(beanMap)) {
 			// 遍历BeanMap
 			for (Map.Entry<Class<?>, Object> beanEntry : beanMap.entrySet()) {
