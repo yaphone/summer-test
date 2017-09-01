@@ -8,7 +8,7 @@ import cn.zhouyafeng.summer.framework.bean.View;
 @Controller
 public class ViewController {
 
-    @Action("/customer")
+    @Action("get:/customer")
     public View index(Param param){
         return new View("customer.jsp");
     }

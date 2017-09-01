@@ -133,7 +133,7 @@ public final class ClassUtil {
 	}
 
 	private static void doAddClass(Set<Class<?>> classSet, String className) {
-		Class<?> cls = loadClass(className, true); // isInitalized设置为false以提高加载效率
+		Class<?> cls = loadClass(className, false); // isInitalized设置为false以提高加载效率
 		classSet.add(cls);
 	}
 }
